@@ -153,7 +153,7 @@ write_vtk("HWfourWing", system)
 
 
 #///////////////////////////////////////////////////////////////////////
-# 3. Jacobian
+# 4. Jacobian
 #///////////////////////////////////////////////////////////////////////
 
 
@@ -167,7 +167,7 @@ function sweep_then_Jacobian(range_values, fixed_c_vec)
         c_vec = deepcopy(fixed_c_vec) #was copy
         
         # Calculate the objective function (CDi)
-        CDi, _, system = Create_wing_and_analyze(c_vec) #System is there to create wing on paraview
+        CDi, _, system = Create_wing_and_analyze(c_vec)
         push!(CDi_values, CDi)
     end
 
@@ -178,3 +178,4 @@ end
 
 jacobian = sweep_then_Jacobian(c3_range, BASELINE_CHORDS) #Varies the tip chords
 print(jacobian)
+
